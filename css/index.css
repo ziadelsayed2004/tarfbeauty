@@ -743,6 +743,7 @@ p {
 
 .filter-group {
   display: flex;
+  flex-direction: row-reverse;
   gap: var(--space-md);
   align-items: center;
   flex-wrap: wrap;
@@ -780,6 +781,7 @@ p {
 
 .products-header {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--space-xl);

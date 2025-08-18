@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function(){
         return;
       }
       
-      let msg = '*طلب جديد من Tarf beauty*%0A%0A';
+      let msg = '*طلب جديد من Tarf Beauty*%0A%0A';
       msg += '*البيانات*%0A';
       msg += 'الاسم: ' + name + '%0A';
       msg += 'الهاتف: ' + phone + '%0A';
