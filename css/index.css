@@ -320,6 +320,10 @@ p {
   position: absolute;
   top: -8px;
   right: -8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   background: var(--deg-acc);
   color: white;
   font-size: var(--text-xs);
@@ -565,6 +569,7 @@ p {
   display: flex;
   gap: var(--space-sm);
   align-items: center;
+  justify-content: center;
 }
 
 .quantity-display {
@@ -1430,7 +1435,6 @@ p {
   .product-actions {
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: stretch;
     gap: var(--space-sm);
   }
   
