@@ -799,6 +799,16 @@ p {
 .cart-dropdown {
   position: fixed;
   top: 100px;
+  width: 100dvw !important;
+  height: 100%;
+  z-index: var(--z-dropdown);
+  overflow: hidden;
+  display: block;
+  backdrop-filter: blur(10px);
+}
+
+.cart-dropdown-container {
+  position: fixed;
   right: 10vw;
   width: 400px;
   max-width: 90vw;
@@ -1338,8 +1348,19 @@ p {
   }
   
   .cart-dropdown {
-    width: 90vw;
+    position: fixed;
+    top: 100px;
+    width: 100dvw !important;
+    height: 100%;
+    z-index: var(--z-dropdown);
+    overflow: hidden;
+    display: block;
+    backdrop-filter: blur(10px);
+  }
+  
+  .cart-dropdown-container {
     right: 5vw;
+    width: 90vw;
   }
   
   .cart-dropdown .btn {

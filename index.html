@@ -108,17 +108,19 @@
     </div>
 
     <div id="cart-dropdown" class="cart-dropdown hidden" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-describedby="cart-description">
-      <div class="cart-head">
-        <h4 id="cart-title">السلة</h4>
-        <button id="close-cart" class="icon-btn" aria-label="إغلاق السلة"><i class="fas fa-times"></i></button>
-      </div>
-      <div id="cart-items" class="cart-items" aria-label="محتويات السلة">
-        <p class="empty" id="cart-description">السلة فارغة</p>
-      </div>
-      <div class="cart-footer">
-        <div class="totals"><span>المجموع</span><span id="cart-subtotal">0.00 EGP</span></div>
-        <button id="checkout-btn" class="btn btn-primary">الدفع</button>
-      </div>
+      <div class="cart-dropdown-container">
+        <div class="cart-head">
+          <h4 id="cart-title">السلة</h4>
+          <button id="close-cart" class="icon-btn" aria-label="إغلاق السلة"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items" class="cart-items" aria-label="محتويات السلة">
+          <p class="empty" id="cart-description">السلة فارغة</p>
+        </div>
+        <div class="cart-footer">
+          <div class="totals"><span>المجموع</span><span id="cart-subtotal">0.00 EGP</span></div>
+          <button id="checkout-btn" class="btn btn-primary">الدفع</button>
+        </div>
+      </div>  
     </div>
 
     <!-- IMPROVED: Checkout modal with proper accessibility -->
