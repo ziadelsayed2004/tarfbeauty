@@ -210,6 +210,8 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   // ===== MOBILE MENU =====
+  const preloadImg = new Image();
+  preloadImg.src = "imgs/spark.png";
   const mobileBtn = dom('#mobile-menu-btn');
   const mobileMenu = dom('#mobile-menu');
   const icon = mobileBtn.querySelector("i");
