@@ -1,9 +1,9 @@
 :root {
   /* Color Palette */
-  --deg-acc: #393B65; /* Primary accent */
-  --deg-sub: #A294C7; /* Secondary */
-  --deg-sup: #F8F5FF; /* Surface/light background */
-  --deg-bg: #F1E3F0; /* Surface/light background */
+  --deg-acc: #393B65;
+  --deg-sub: #A294C7;
+  --deg-sup: #F8F5FF;
+  --deg-bg: #F1E3F0;
   --bg: #ffffff;
   --text: #222222;
   --muted: rgba(0,0,0,0.55);
