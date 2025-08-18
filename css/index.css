@@ -329,6 +329,7 @@ p {
   background: var(--deg-acc);
   color: white;
   opacity: 0.75;
+  padding: auto;
   font-size: var(--text-xs);
   font-weight: 700;
   border-radius: 10px;
