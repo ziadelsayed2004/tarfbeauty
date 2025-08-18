@@ -212,13 +212,38 @@ document.addEventListener('DOMContentLoaded', function(){
   // ===== MOBILE MENU =====
   const mobileBtn = dom('#mobile-menu-btn');
   const mobileMenu = dom('#mobile-menu');
+  const icon = mobileBtn.querySelector("i");
+  
+  function swapIcon(oldIcon, newIcon) {
+    icon.classList.add("fade-out");
+  
+    const handleEnd = () => {
+      icon.classList.remove("fade-out", oldIcon);
+      icon.classList.add(newIcon, "fade-in");
+  
+      icon.addEventListener("transitionend", () => {
+        icon.classList.remove("fade-in");
+      }, { once: true });
+  
+      icon.removeEventListener("transitionend", handleEnd);
+    };
+  
+    icon.addEventListener("transitionend", handleEnd);
+  }
+  
+  mobileBtn.addEventListener("click", () => {
+    if (icon.classList.contains("fa-bars")) {
+      swapIcon("fa-bars", "fa-times");
+    } else {
+      swapIcon("fa-times", "fa-bars");
+    }
+  });
+  
   if (mobileBtn && mobileMenu) {
     const openMobileMenu = () => {
       mobileBtn.setAttribute('aria-expanded', 'true');
       mobileMenu.setAttribute('aria-hidden', 'false');
-      // Prepare for animation
       mobileMenu.classList.remove('hidden');
-      // Force reflow so transition can run when adding .open
       void mobileMenu.offsetHeight;
       mobileMenu.classList.add('open');
       const firstLink = mobileMenu.querySelector('.mobile-link');
@@ -227,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const closeMobileMenu = () => {
       mobileBtn.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
-      // Run closing animation then hide
       mobileMenu.classList.remove('open');
       const handleEnd = () => {
         mobileMenu.classList.add('hidden');

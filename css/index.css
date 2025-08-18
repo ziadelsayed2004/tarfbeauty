@@ -240,8 +240,8 @@ p {
 
 .logo-circle {
   width: 200px;
-  height: 80px;
-  max-height: 80px;
+  height: 100px;
+  max-height: 90px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -346,10 +346,30 @@ p {
   display: none;
   background: transparent;
   border: none;
-  font-size: 25px;
   padding: var(--space-md);
   cursor: pointer;
   color: var(--text);
+  transition: all var(--anim-duration-slow) var(--anim-easing);
+}
+
+.site-header:has(.mobile-menu.open) .hamburger {
+  color: var(--deg-acc);
+}
+
+.hamburger i {
+  font-size: 30px;
+  width: 30px;
+  transition: all var(--anim-duration-slow) var(--anim-easing);
+}
+
+.hamburger i.fade-out {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.hamburger i.fade-in {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 .mobile-menu {
@@ -805,13 +825,13 @@ p {
 /* ===== CART DROPDOWN ===== */
 .cart-dropdown {
   position: fixed;
-  top: 88px;
+  top: 100px;
   width: 100dvw !important;
   height: 100%;
   z-index: var(--z-dropdown);
   overflow: hidden;
   display: block;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
 }
 
 .cart-dropdown-container {
@@ -1338,7 +1358,7 @@ p {
   
   .cart-dropdown {
     position: fixed;
-    top: 88px;
+    top: 100px;
     width: 100dvw !important;
     height: 100%;
     z-index: var(--z-dropdown);
@@ -1409,7 +1429,7 @@ p {
   
   .logo-circle {
     width: 125px;
-    height: 50px;
+    height: 60px;
   }
   
   .hero {
