@@ -349,17 +349,23 @@ p {
   padding: var(--space-md);
   cursor: pointer;
   color: var(--text);
-  transition: all var(--anim-duration-slow) var(--anim-easing);
-}
-
-.site-header:has(.mobile-menu.open) .hamburger {
-  color: var(--deg-acc);
 }
 
 .hamburger i {
-  font-size: 30px;
+  display: inline-block;
   width: 30px;
-  transition: all var(--anim-duration-slow) var(--anim-easing);
+  height: 30px;
+  line-height: 30px;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+  object-fit: contain;
+  transform-origin: center center;
+  transition: transform var(--anim-duration-slow) var(--anim-easing), opacity var(--anim-duration-slow) var(--anim-easing);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .hamburger i.fade-out {
@@ -370,6 +376,11 @@ p {
 .hamburger i.fade-in {
   opacity: 1;
   transform: rotate(0deg);
+}
+
+.site-header:has(.mobile-menu.open) .hamburger i img {
+  filter: invert(19%) sepia(9%) saturate(3617%) hue-rotate(199deg) brightness(93%) contrast(81%);
+  transition: filter var(--anim-duration) var(--anim-easing);
 }
 
 .mobile-menu {

@@ -218,8 +218,15 @@ document.addEventListener('DOMContentLoaded', function(){
     icon.classList.add("fade-out");
   
     const handleEnd = () => {
-      icon.classList.remove("fade-out", oldIcon);
-      icon.classList.add(newIcon, "fade-in");
+      icon.classList.remove("fade-out");
+  
+      if (newIcon === "spa-image") {
+        icon.className = "";
+        icon.innerHTML = `<img src="imgs/spark.png" alt="" style="width:30px; height:30px;" />`;
+      } else {
+        icon.innerHTML = ""; 
+        icon.className = `fas ${newIcon} fade-in`;  
+      }
   
       icon.addEventListener("transitionend", () => {
         icon.classList.remove("fade-in");
@@ -240,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function(){
       mobileMenu.classList.add('open');
   
       if (icon.classList.contains("fa-bars")) {
-        swapIcon("fa-bars", "fa-spa");
+        swapIcon("fa-bars", "spa-image");
       }
     };
   
@@ -255,8 +262,8 @@ document.addEventListener('DOMContentLoaded', function(){
       };
       mobileMenu.addEventListener('transitionend', handleEnd);
   
-      if (icon.classList.contains("fa-spa")) {
-        swapIcon("fa-spa", "fa-bars");
+      if (icon.innerHTML.includes("img")) {
+        swapIcon("spa-image", "fa-bars");
       }
     };
   
@@ -269,6 +276,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
   }
+  
   
 
   // ===== CART EVENT LISTENERS =====
