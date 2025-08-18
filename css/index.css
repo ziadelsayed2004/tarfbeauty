@@ -39,8 +39,8 @@
   --page-size: 6;
   
   /* Animation */
-  --anim-duration: 150ms;
-  --anim-duration-slow: 200ms;
+  --anim-duration: 175ms;
+  --anim-duration-slow: 250ms;
   --anim-easing: ease-in-out;
   
   /* Z-index Management */
@@ -362,7 +362,7 @@ p {
   transform: translateY(-8px);
   visibility: hidden;
   pointer-events: none;
-  transition: max-height var(--anim-duration-slow) var(--anim-easing), opacity var(--anim-duration-slow) var(--anim-easing), transform var(--anim-duration-slow) var(--anim-easing);
+  transition: all var(--anim-duration-slow) var(--anim-easing);
 }
 
 .mobile-menu.hidden {
