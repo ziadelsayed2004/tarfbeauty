@@ -805,7 +805,7 @@ p {
 /* ===== CART DROPDOWN ===== */
 .cart-dropdown {
   position: fixed;
-  top: 100px;
+  top: 88px;
   width: 100dvw !important;
   height: 100%;
   z-index: var(--z-dropdown);
@@ -817,6 +817,7 @@ p {
 .cart-dropdown-container {
   position: fixed;
   right: 10vw;
+  top: 10px;
   width: 400px;
   max-width: 90vw;
   background: var(--bg);
@@ -1337,7 +1338,7 @@ p {
   
   .cart-dropdown {
     position: fixed;
-    top: 100px;
+    top: 88px;
     width: 100dvw !important;
     height: 100%;
     z-index: var(--z-dropdown);
