@@ -228,16 +228,8 @@ document.addEventListener('DOMContentLoaded', function(){
       icon.removeEventListener("transitionend", handleEnd);
     };
   
-    icon.addEventListener("transitionend", handleEnd);
+    icon.addEventListener("transitionend", handleEnd, { once: true });
   }
-  
-  mobileBtn.addEventListener("click", () => {
-    if (icon.classList.contains("fa-bars")) {
-      swapIcon("fa-bars", "fa-times");
-    } else {
-      swapIcon("fa-times", "fa-bars");
-    }
-  });
   
   if (mobileBtn && mobileMenu) {
     const openMobileMenu = () => {
@@ -246,9 +238,12 @@ document.addEventListener('DOMContentLoaded', function(){
       mobileMenu.classList.remove('hidden');
       void mobileMenu.offsetHeight;
       mobileMenu.classList.add('open');
-      const firstLink = mobileMenu.querySelector('.mobile-link');
-      if (firstLink) firstLink.focus();
+  
+      if (icon.classList.contains("fa-bars")) {
+        swapIcon("fa-bars", "fa-spa");
+      }
     };
+  
     const closeMobileMenu = () => {
       mobileBtn.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
@@ -258,7 +253,12 @@ document.addEventListener('DOMContentLoaded', function(){
         mobileMenu.removeEventListener('transitionend', handleEnd);
       };
       mobileMenu.addEventListener('transitionend', handleEnd);
+  
+      if (icon.classList.contains("fa-spa")) {
+        swapIcon("fa-spa", "fa-bars");
+      }
     };
+  
     mobileBtn.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.contains('open');
       if (isOpen) {
@@ -268,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
   }
+  
 
   // ===== CART EVENT LISTENERS =====
   const cartBtn = dom('#cart-btn');
