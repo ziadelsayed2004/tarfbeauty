@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tarf beauty — Home</title>
+  <link rel="icon" href="imgs/TarfBg.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/index.css">  
+</head>
+<body>
+  <div id="page" class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <button id="mobile-menu-btn" class="hamburger" aria-label="القائمة" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
+          <a href="index.html" class="logo-link">
+            <div class="logo-circle">
+              <img src="imgs/Tarf.png" alt="Tarf" class="logo-small">
+            </div>
+          </a>
+        </div>
+        <nav id="main-nav" class="nav">
+          <a href="shop.html" class="nav-link">المنتجات</a>
+          <a href="about.html" class="nav-link">عنا</a>
+          <a href="contact.html" class="nav-link">تواصل</a>
+        </nav>
+        <div class="actions">
+          <button id="cart-btn" class="icon-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="cart-dropdown">
+            <i class="fas fa-shopping-cart"></i><span id="cart-count" class="badge">0</span>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="mobile-menu hidden container" aria-hidden="true">
+        <a href="shop.html" class="mobile-link">المنتجات</a>
+        <a href="about.html" class="mobile-link">عنا</a>
+        <a href="contact.html" class="mobile-link">تواصل</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h1>اكتشفي جمالك مع Tarf beauty</h1>
+            <p>مستحضرات تجميل وعناية بالجسم مختارة بعناية لتمنحك الثقة والتوهج</p>
+            <a href="shop.html" class="btn btn-primary">تسوقي الآن</a>
+          </div>
+          <div class="hero-visual">
+            <img src="imgs/Tarf.png" alt="visual" class="hero-img" loading="lazy" width="800" height="600">
+          </div>
+        </div>
+      </section>
+
+      <section id="best-sellers" class="products">
+        <div class="container">
+          <h2 class="section-title">Best Sellers</h2>
+          <div id="products-grid" class="grid" aria-live="polite"></div>
+          <div id="pager" class="pager" aria-label="pagination"></div>
+          <div style="text-align:center;margin-top:12px"><a href="shop.html" class="btn btn-secondary">عرض المتجر بالكامل</a></div>
+        </div>
+      </section>
+
+      <section id="about-section" class="about">
+        <div class="container about-inner">
+          <div class="about-card">
+            <h3>عن ترف بيوتي</h3>
+            <p>منتجات تجميلية ومنتجات عناية بالجسم مصممة لتبرز جمالك الطبيعي وتدعم روتينك اليومي.</p>
+            <a href="about.html" class="btn btn-secondary">اعرفي المزيد</a>
+          </div>
+          <div class="contacts">
+            <h4>تواصل معنا</h4>
+            <ul>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                10th Of Ramadan City, Egypt.
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+201020572730" class="contact-link">+201020572730</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:tarfbeauty2025@gmail.com" class="contact-link">tarfbeauty2025@gmail.com</a>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">تواصلي معنا</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- NEW: Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal hidden" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+      <div class="gallery-content">
+        <img id="gallery-main" class="gallery-main" alt="صورة المنتج" src="">
+        <button class="gallery-nav gallery-prev" aria-label="الصورة السابقة">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="gallery-nav gallery-next" aria-label="الصورة التالية">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="gallery-close" aria-label="إغلاق المعرض">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
+      </div>
+    </div>
+
+    <div id="cart-dropdown" class="cart-dropdown hidden" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-describedby="cart-description">
+      <div class="cart-head">
+        <h4 id="cart-title">السلة</h4>
+        <button id="close-cart" class="icon-btn" aria-label="إغلاق السلة"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="cart-items" class="cart-items" aria-label="محتويات السلة">
+        <p class="empty" id="cart-description">السلة فارغة</p>
+      </div>
+      <div class="cart-footer">
+        <div class="totals"><span>المجموع</span><span id="cart-subtotal">0.00 EGP</span></div>
+        <button id="checkout-btn" class="btn btn-primary">الدفع</button>
+      </div>
+    </div>
+
+    <!-- IMPROVED: Checkout modal with proper accessibility -->
+    <div id="checkout-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-describedby="checkout-description">
+      <div class="modal-inner">
+        <button id="close-checkout" class="icon-btn close-modal" aria-label="إغلاق نافذة الدفع"><i class="fas fa-times"></i></button>
+        <h3 id="checkout-title">الدفع</h3>
+        <p id="checkout-description" class="sr-only">أدخلي بياناتك لإتمام الطلب</p>
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-group">
+            <label for="checkout-name" class="sr-only">الاسم الكامل</label>
+            <input id="checkout-name" placeholder="الاسم الكامل" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="checkout-phone" class="sr-only">رقم الهاتف</label>
+            <input id="checkout-phone" placeholder="رقم الهاتف" required aria-required="true" type="tel">
+          </div>
+          <div class="form-group">
+            <label for="checkout-address" class="sr-only">العنوان</label>
+            <textarea id="checkout-address" rows="3" placeholder="العنوان" required aria-required="true"></textarea>
+          </div>
+          <div class="summary">
+            <div class="line"><span>المجموع</span><span id="checkout-subtotal">0.00 EGP</span></div>
+            <button id="place-order" class="btn btn-primary">إرسال الطلب عبر واتساب</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- NEW: Go to Top Button with Progress Circle -->
+    <button id="go-to-top" class="go-to-top" aria-label="العودة لأعلى الصفحة">
+      <svg id="progress-circle" class="progress-circle" viewBox="0 0 36 36">
+        <path class="progress-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <path id="progress-fill" class="progress-fill" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      </svg>
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand-foot">
+          <div class="logo-circle small">
+            <a href="index.html">
+              <img src="imgs/TarfBg.png" alt="Tarf" style="width:80px;height:80px;object-fit:contain">
+            </a>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <div class="copy">© 2025 Tarf Beauty. All rights reserved.</div>
+          <div class="watermark">Developed By Ziad Elsayed</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="success-toast" class="toast hidden" role="status" aria-live="polite" aria-atomic="true">تم الإرسال بنجاح</div>
+  
+  <script src="js/products.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

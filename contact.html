@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tarf beauty — تواصل معنا</title>
+  <link rel="icon" href="imgs/TarfBg.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/index.css">  
+  <link rel="stylesheet" href="css/contact.css">  
+</head>
+<body>
+  <div id="page" class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <button id="mobile-menu-btn" class="hamburger" aria-label="القائمة" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
+          <a href="index.html" class="logo-link">
+            <div class="logo-circle">
+              <img src="imgs/Tarf.png" alt="Tarf" class="logo-small">
+            </div>
+          </a>
+        </div>
+        <nav id="main-nav" class="nav">
+          <a href="shop.html" class="nav-link">المنتجات</a>
+          <a href="about.html" class="nav-link">عنا</a>
+          <a href="contact.html" class="nav-link active">تواصل</a>
+        </nav>
+        <div class="actions">
+          <button id="cart-btn" class="icon-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="cart-dropdown">
+            <i class="fas fa-shopping-cart"></i><span id="cart-count" class="badge">0</span>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="mobile-menu hidden container" aria-hidden="true">
+        <a href="shop.html" class="mobile-link">المنتجات</a>
+        <a href="about.html" class="mobile-link">عنا</a>
+        <a href="contact.html" class="mobile-link active">تواصل</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="contact-hero">
+        <div class="container">
+          <div class="contact-hero-content">
+            <h1>تواصلي معنا</h1>
+            <p>نحن هنا للإجابة على استفساراتك وتقديم المساعدة التي تحتاجينها</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Info Section -->
+      <section class="contact-info-section">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2>معلومات التواصل</h2>
+              <div class="info-items">
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="info-content">
+                    <h3>العنوان</h3>
+                    <p>Egypt 10th Of Ramadan City<br>New Cairo, Egypt</p>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="info-content">
+                    <h3>الهاتف</h3>
+                    <p><a href="tel:+201020572730">+20 109 691 9648</a></p>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="info-content">
+                    <h3>البريد الإلكتروني</h3>
+                    <p><a href="mailto:tarfbeauty2025@gmail.com">tarfbeauty2025@gmail.com</a></p>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="info-content">
+                    <h3>ساعات العمل</h3>
+                    <p>الأحد - الخميس: 9:00 ص - 6:00 م<br>الجمعة - السبت: 10:00 ص - 4:00 م</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form-container">
+              <h2>أرسلي لنا رسالة</h2>
+              <form id="contact-form" class="contact-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contact-name">الاسم الكامل *</label>
+                    <input id="contact-name" name="name" type="text" required aria-required="true">
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-email">البريد الإلكتروني *</label>
+                    <input id="contact-email" name="email" type="email" required aria-required="true">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="contact-phone">رقم الهاتف</label>
+                  <input id="contact-phone" name="phone" type="tel">
+                </div>
+                <div class="form-group">
+                  <label for="contact-subject">الموضوع *</label>
+                  <select id="contact-subject" name="subject" required aria-required="true">
+                    <option value="">اختر الموضوع</option>
+                    <option value="استفسار عام">استفسار عام</option>
+                    <option value="طلب منتج">طلب منتج</option>
+                    <option value="شكوى">شكوى</option>
+                    <option value="اقتراح">اقتراح</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="contact-message">الرسالة *</label>
+                  <textarea id="contact-message" name="message" rows="5" required aria-required="true" placeholder="اكتبي رسالتك هنا"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary submit-btn">
+                  <i class="fas fa-paper-plane"></i>
+                  إرسال الرسالة
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Media Section -->
+      <section class="social-section">
+        <div class="container">
+          <h2 class="section-title">تابعينا على وسائل التواصل الاجتماعي</h2>
+          <div class="social-grid">
+            <a href="#" class="social-card facebook">
+              <div class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </div>
+              <h3>Facebook</h3>
+              <p>تابعي آخر أخبارنا وعروضنا</p>
+            </a>
+            <a href="#" class="social-card instagram">
+              <div class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <h3>Instagram</h3>
+              <p>شاهدي صور منتجاتنا واستخداماتها</p>
+            </a>
+            <a href="#" class="social-card whatsapp">
+              <div class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <h3>WhatsApp</h3>
+              <p>تواصلي معنا مباشرة</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map Section -->
+      <section class="map-section">
+        <div class="container">
+          <h2 class="section-title">موقعنا</h2>
+          <div class="map-container">
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <h3>10th Of Ramadan City, Egypt.</h3>
+              <p>نحن موجودون في مدينة العاشر من رمضان</p>
+              <a href="https://maps.google.com/" target="_blank" class="btn btn-secondary">
+                <i class="fas fa-external-link-alt"></i>
+                Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="container">
+          <h2 class="section-title">الأسئلة الشائعة</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                <span>كيف يمكنني طلب منتجاتكم؟</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div id="faq-answer-1" class="faq-answer" aria-hidden="true">
+                <p>يمكنك طلب منتجاتنا من خلال موقعنا الإلكتروني أو التواصل معنا عبر الهاتف أو WhatsApp. نحن نقدم خدمة التوصيل لجميع محافظات مصر.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                <span>هل منتجاتكم آمنة للاستخدام؟</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div id="faq-answer-2" class="faq-answer" aria-hidden="true">
+                <p>نعم، جميع منتجاتنا مصنوعة من مكونات طبيعية وآمنة، وتم اختبارها من قبل خبراء متخصصين. نحن نلتزم بأعلى معايير الجودة والسلامة.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                <span>ما هي سياسة الإرجاع والاستبدال؟</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div id="faq-answer-3" class="faq-answer" aria-hidden="true">
+                <p>نحن نقدم ضمان رضا العملاء لمدة 30 يوماً. إذا لم تكوني راضية عن المنتج، يمكنك إرجاعه واستبداله أو استرداد المبلغ كاملاً.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                <span>هل تقدمون عينات مجانية؟</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div id="faq-answer-4" class="faq-answer" aria-hidden="true">
+                <p>نعم، نقدم عينات مجانية مع أول طلب. كما نقدم عينات عند شراء منتجات جديدة لتجربتها قبل الشراء.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart Dropdown -->
+    <div id="cart-dropdown" class="cart-dropdown hidden" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-describedby="cart-description">
+      <div class="cart-head">
+        <h4 id="cart-title">السلة</h4>
+        <button id="close-cart" class="icon-btn" aria-label="إغلاق السلة"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="cart-items" class="cart-items" aria-label="محتويات السلة">
+        <p class="empty" id="cart-description">السلة فارغة</p>
+      </div>
+      <div class="cart-footer">
+        <div class="totals"><span>المجموع</span><span id="cart-subtotal">0.00 EGP</span></div>
+        <button id="checkout-btn" class="btn btn-primary">الدفع</button>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-describedby="checkout-description">
+      <div class="modal-inner">
+        <button id="close-checkout" class="icon-btn close-modal" aria-label="إغلاق نافذة الدفع"><i class="fas fa-times"></i></button>
+        <h3 id="checkout-title">الدفع</h3>
+        <p id="checkout-description" class="sr-only">أدخلي بياناتك لإتمام الطلب</p>
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-group">
+            <label for="checkout-name" class="sr-only">الاسم الكامل</label>
+            <input id="checkout-name" placeholder="الاسم الكامل" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="checkout-phone" class="sr-only">رقم الهاتف</label>
+            <input id="checkout-phone" placeholder="رقم الهاتف" required aria-required="true" type="tel">
+          </div>
+          <div class="form-group">
+            <label for="checkout-address" class="sr-only">العنوان</label>
+            <textarea id="checkout-address" rows="3" placeholder="العنوان" required aria-required="true"></textarea>
+          </div>
+          <div class="summary">
+            <div class="line"><span>المجموع</span><span id="checkout-subtotal">0.00 EGP</span></div>
+            <button id="place-order" class="btn btn-primary">إرسال الطلب عبر واتساب</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand-foot">
+          <div class="brand-foot"><div class="logo-circle small"><img src="imgs/TarfBg.png" alt="Tarf" style="width:80px;height:80px;object-fit:contain"></div></div>
+        </div>
+        <div class="footer-meta">
+          <div class="copy">© 2025 Tarf Beauty. All rights reserved.</div>
+          <div class="watermark">Developed By Ziad Elsayed</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast -->
+  <div id="success-toast" class="toast hidden" role="status" aria-live="polite" aria-atomic="true">تم الإرسال بنجاح</div>
+  
+  <script src="js/products.js"></script>
+  <script src="js/index.js"></script>
+  <script>
+    // FAQ functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          const answer = this.nextElementSibling;
+          
+          // Close all other FAQ items
+          faqQuestions.forEach(q => {
+            if (q !== this) {
+              q.setAttribute('aria-expanded', 'false');
+              q.nextElementSibling.setAttribute('aria-hidden', 'true');
+            }
+          });
+          
+          // Toggle current item
+          this.setAttribute('aria-expanded', !isExpanded);
+          answer.setAttribute('aria-hidden', isExpanded);
+        });
+      });
+      
+      // Contact form submission
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form data
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+          
+          // Validate required fields
+          if (!data.name || !data.email || !data.subject || !data.message) {
+            showToast('يرجى ملء جميع الحقول المطلوبة', 'error');
+            return;
+          }
+          
+          // Show success message
+          showToast('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً', 'success');
+          
+          // Reset form
+          this.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

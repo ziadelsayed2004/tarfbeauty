@@ -1,0 +1,236 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* About page specific styles */
+.about-hero {
+  background: linear-gradient(135deg, var(--deg-acc), var(--deg-sub));
+  color: white;
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.about-hero-content h1 {
+  font-size: var(--text-4xl);
+  margin: 0 0 var(--space-md);
+  font-weight: 800;
+}
+
+.about-hero-content p {
+  font-size: var(--text-xl);
+  margin: 0;
+  opacity: 0.9;
+}
+
+.story-section {
+  padding: var(--space-2xl) 0;
+  text-align: right;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.story-content h2 {
+  color: var(--deg-acc);
+  font-size: var(--text-3xl);
+  margin: 0 0 var(--space-lg);
+  font-weight: 700;
+}
+
+.story-content p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 var(--space-md);
+  font-size: var(--text-base);
+}
+
+.story-image img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.values-section {
+  padding: var(--space-2xl) 0;
+  background: linear-gradient(180deg, var(--deg-sup) 0%, rgba(255,255,255,0.8) 100%);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.value-card {
+  background: var(--bg);
+  padding: var(--space-xl);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all var(--anim-duration) var(--anim-easing);
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 80px rgba(57,59,101,0.12);
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--deg-acc), var(--deg-sub));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  font-size: 32px;
+  color: white;
+}
+
+.value-card h3 {
+  color: var(--deg-acc);
+  font-size: var(--text-xl);
+  margin: 0 0 var(--space-md);
+  font-weight: 700;
+}
+
+.value-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.milestones-section {
+  padding: var(--space-2xl) 0;
+  background: linear-gradient(180deg, var(--deg-sup) 0%, rgba(255,255,255,0.8) 100%);
+}
+
+.timeline {
+  max-width: 800px;
+  margin: var(--space-xl) auto 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--deg-sub);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-year {
+  background: var(--deg-acc);
+  color: white;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 20px;
+  font-weight: 700;
+  min-width: 80px;
+  text-align: center;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: var(--bg);
+  padding: var(--space-lg);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  margin: 0 var(--space-lg);
+  flex: 1;
+  max-width: 300px;
+  text-align: right;
+}
+
+.timeline-content h3 {
+  color: var(--deg-acc);
+  margin: 0 0 var(--space-sm);
+  font-size: var(--text-lg);
+}
+
+.timeline-content p {
+  color: var(--muted);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.cta-section {
+  padding: var(--space-2xl) 0;
+  color: var(--deg-acc);
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: var(--text-3xl);
+  margin: 0 0 var(--space-md);
+  font-weight: 800;
+}
+
+.cta-content p {
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-xl);
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    flex-direction: row !important;
+  }
+  
+  .timeline-content {
+    margin-left: var(--space-lg);
+    margin-right: 0;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
