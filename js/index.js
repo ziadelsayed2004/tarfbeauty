@@ -248,6 +248,7 @@ document.addEventListener('DOMContentLoaded', function(){
       mobileBtn.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
       mobileMenu.classList.remove('open');
+  
       const handleEnd = () => {
         mobileMenu.classList.add('hidden');
         mobileMenu.removeEventListener('transitionend', handleEnd);
