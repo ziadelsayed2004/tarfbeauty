@@ -318,8 +318,8 @@ p {
 
 .badge {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -12.5px;
+  right: -12.5px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -329,13 +329,12 @@ p {
   background: var(--deg-acc);
   color: white;
   opacity: 0.75;
-  padding: auto;
+  padding: var(--space-xs);
   font-size: var(--text-xs);
   font-weight: 700;
-  border-radius: 10px;
+  border-radius: 50%;
   min-width: 20px;
-  min-height: 20px;
-  height: 20px;
+  aspect-ratio: 1/1;
 }
 
 /* ===== MOBILE MENU ===== */
