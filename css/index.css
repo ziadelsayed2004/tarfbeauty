@@ -325,6 +325,7 @@ p {
   align-items: center;
   align-content: center;
   justify-content: center;
+  text-align: center;
   background: var(--deg-acc);
   color: white;
   opacity: 0.75;
@@ -334,7 +335,6 @@ p {
   min-width: 20px;
   min-height: 20px;
   height: 20px;
-  text-align: center;
 }
 
 /* ===== MOBILE MENU ===== */
