@@ -318,8 +318,8 @@ p {
 
 .badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -7.5px;
+  right: -7.5px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -331,6 +331,7 @@ p {
   padding: 2.5px;
   border-radius: 10px;
   min-width: 20px;
+  min-height: 20px;
   text-align: center;
 }
 
