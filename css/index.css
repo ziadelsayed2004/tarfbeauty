@@ -1321,7 +1321,7 @@ p {
   }
   
   .filter-label {
-    margin-right: 0;
+    margin-left: auto;
     margin-bottom: var(--space-sm);
   }
   
