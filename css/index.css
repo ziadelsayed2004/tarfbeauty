@@ -1491,3 +1491,29 @@ p {
     border: 1px solid #ccc;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:focus,
+  button:focus,
+  .btn:focus,
+  .icon-btn:focus,
+  .mobile-link:focus,
+  .nav-link:focus,
+  .product-media:focus,
+  .gallery-nav:focus,
+  .gallery-close:focus,
+  .go-to-top:focus,
+  .filter-btn:focus,
+  .pager button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  img {
+    -webkit-touch-callout: none;
+  }
+}
