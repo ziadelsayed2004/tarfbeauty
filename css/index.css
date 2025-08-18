@@ -1226,28 +1226,10 @@ p {
 
 .footer-inner {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-}
-
-.footer-inner .logo-circle {
-  width: 80px;
-  height: 80px;
-  margin: 10px 0px 10px 10px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  transform: scale(1.5);
-  transition: transform var(--anim-duration) var(--anim-easing);
-}
-
-.brand-foot {
-  display: flex;
   align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
 .copy {
@@ -1258,7 +1240,6 @@ p {
 .footer-meta {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   gap: 4px;
 }
 
