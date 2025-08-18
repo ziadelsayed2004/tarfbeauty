@@ -334,6 +334,7 @@ p {
   font-weight: 700;
   border-radius: 50%;
   min-width: 20px;
+  max-height: 20px;
   aspect-ratio: 1/1;
 }
 
