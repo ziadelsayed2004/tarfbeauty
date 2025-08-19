@@ -1371,7 +1371,7 @@ p {
   
   .cart-dropdown {
     position: fixed;
-    top: 100px;
+    top: 78px;
     width: 100dvw !important;
     height: 100%;
     z-index: var(--z-dropdown);
