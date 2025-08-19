@@ -766,52 +766,6 @@ p {
   opacity: 0.9;
 }
 
-.filters-section {
-  padding: var(--space-lg) 0;
-  background: var(--bg);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.filter-group {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: var(--space-md);
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.filter-label {
-  font-weight: 600;
-  color: var(--deg-acc);
-  margin-right: var(--space-md);
-}
-
-.filter-btn {
-  background: transparent;
-  border: 1px solid rgba(57,59,101,0.2);
-  color: var(--deg-acc);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all var(--anim-duration) var(--anim-easing);
-  font-weight: 500;
-  font-size: var(--text-sm);
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--deg-acc);
-  color: white;
-  border-color: var(--deg-acc);
-  transform: translateY(-1px);
-}
-
 .products-section {
   padding: var(--space-2xl) 0;
 }

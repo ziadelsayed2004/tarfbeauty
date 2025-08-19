@@ -21,7 +21,6 @@
   flex-direction: row-reverse;
   gap: var(--space-md);
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .filter-label {
@@ -129,6 +128,10 @@
     width: 100%;
   }
   
+  .filter-label.responsive {
+    display: none;
+  }
+
   .filter-toggle {
     display: flex;
     flex-direction: row-reverse;
