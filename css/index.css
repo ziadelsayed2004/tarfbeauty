@@ -1360,7 +1360,6 @@ p {
   
   .filter-label {
     margin-left: auto;
-    margin-bottom: var(--space-sm);
   }
   
   .products-header {

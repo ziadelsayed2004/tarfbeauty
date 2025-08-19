@@ -4,18 +4,14 @@
   try {
     const pre = document.getElementById('preloader');
     const page = document.getElementById('page');
-
-    // TEMPORARILY DISABLED: Preloader causing performance issues
     function hidePre(immediate = false){
       if(!pre) return;
       try {
-        // Immediately remove preloader to fix performance
         if(pre.parentNode) pre.parentNode.removeChild(pre);
         if(page) page.classList.remove('blurred');
       } catch(err){}
     }
 
-    // Remove preloader immediately for better performance
     window.addEventListener('load', ()=>{ 
       try{ 
         hidePre(true); 
@@ -25,7 +21,6 @@
       } 
     }, {once:true});
 
-    // Remove preloader immediately if still exists
     setTimeout(()=>{ 
       if(document.getElementById('preloader')) hidePre(true); 
     }, 100);
@@ -111,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
     renderCartShared(cart, cartCountEl, cartItemsEl, cartSubtotalEl);
     
-    // Attach remove event listeners
     domAll('.remove-item').forEach(b => {
       b.addEventListener('click', (ev) => {
         const id = ev.currentTarget.getAttribute('data-id');
@@ -138,19 +132,16 @@ document.addEventListener('DOMContentLoaded', function(){
     const progressFill = dom('#progress-fill');
     
     function updateScrollProgress() {
-      // FIXED: Use correct scroll position
       const scrollTop = window.pageYOffset || window.scrollY || 0;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
       
-      // Show/hide button based on scroll position
       if (scrollTop > 300) {
         goToTopBtn.classList.add('visible');
       } else {
         goToTopBtn.classList.remove('visible');
       }
       
-      // Update progress circle - FIXED: Better calculation
       if (progressFill) {
         const circumference = 2 * Math.PI * 16; // radius = 16
         const progress = (scrollPercent / 100) * circumference;
@@ -165,14 +156,11 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     }
     
-    // Event listeners
     goToTopBtn.addEventListener('click', goToTop);
     
-    // FIXED: Only update progress when gallery is not open
     function handleScroll() {
       const galleryModal = dom('#gallery-modal');
       if (galleryModal && !galleryModal.classList.contains('hidden')) {
-        // Gallery is open, don't update progress
         return;
       }
       updateScrollProgress();
@@ -180,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     
-    // Initial call
     updateScrollProgress();
   }
   
@@ -359,7 +346,6 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   function attachProductEventListeners() {
-    // Product image click for gallery
     domAll('.product-media').forEach(media => {
       media.addEventListener('click', (e) => {
         e.preventDefault();
@@ -538,9 +524,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // ===== PREVENT UNWANTED SCROLLING =====
   function preventUnwantedScrolling() {
-    // Prevent any default link behaviors that might cause scrolling
     document.addEventListener('click', (e) => {
-      // Only prevent default for empty links or hash links
       if (e.target.tagName === 'A') {
         const href = e.target.getAttribute('href');
         if (href === '#' || href === '') {
@@ -552,7 +536,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Prevent scroll on empty areas
     document.addEventListener('click', (e) => {
-      // If clicking on empty space (body or main), don't scroll
       if (e.target === document.body || e.target === document.querySelector('main')) {
         e.preventDefault();
         e.stopPropagation();
@@ -561,7 +544,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Prevent any unwanted scroll behaviors
     document.addEventListener('scroll', (e) => {
-      // Only allow intentional scrolling
       if (!e.isTrusted) {
         e.preventDefault();
         e.stopPropagation();

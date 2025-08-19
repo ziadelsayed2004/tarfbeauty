@@ -6,7 +6,8 @@
   <title>Tarf Beauty — Shop</title>
   <link rel="icon" href="imgs/TarfBg.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/index.css">  
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/shop.css">
 </head>
 <body>
   <div id="page" class="page">
@@ -52,20 +53,30 @@
         <div class="container">
           <div class="filters">
             <div class="filter-group">
-              <span class="filter-label">الفئة</span>
-              <button class="filter-btn active" data-category="all">الكل</button>
-              <button class="filter-btn" data-category="face">العناية بالبشرة</button>
-              <button class="filter-btn" data-category="hair">العناية بالشعر</button>
-              <button class="filter-btn" data-category="body">العناية بالجسم</button>
-              <button class="filter-btn" data-category="makeup">مكياج</button>
+              <button class="filter-toggle" aria-expanded="false" aria-controls="category-filters">
+                <span class="filter-label">الفئة</span>
+                <i class="fas fa-chevron-down filter-icon"></i>
+              </button>
+              <div class="filter-options" id="category-filters">
+                <button class="filter-btn active" data-category="all">الكل</button>
+                <button class="filter-btn" data-category="face">العناية بالبشرة</button>
+                <button class="filter-btn" data-category="hair">العناية بالشعر</button>
+                <button class="filter-btn" data-category="body">العناية بالجسم</button>
+                <button class="filter-btn" data-category="makeup">مكياج</button>
+              </div>
             </div>
             <div class="filter-group">
-              <span class="filter-label">السعر</span>
-              <button class="filter-btn active" data-price="all">الكل</button>
-              <button class="filter-btn" data-price="0-100">أقل من 100 جنيه</button>
-              <button class="filter-btn" data-price="100-200">100 - 200 جنيه</button>
-              <button class="filter-btn" data-price="200-300">200 - 300 جنيه</button>
-              <button class="filter-btn" data-price="300+">أكثر من 300 جنيه</button>
+              <button class="filter-toggle" aria-expanded="false" aria-controls="price-filters">
+                <span class="filter-label">السعر</span>
+                <i class="fas fa-chevron-down filter-icon"></i>
+              </button>
+              <div class="filter-options" id="price-filters">
+                <button class="filter-btn active" data-price="all">الكل</button>
+                <button class="filter-btn" data-price="0-100">أقل من 100 جنيه</button>
+                <button class="filter-btn" data-price="100-200">100 - 200 جنيه</button>
+                <button class="filter-btn" data-price="200-300">200 - 300 جنيه</button>
+                <button class="filter-btn" data-price="300+">أكثر من 300 جنيه</button>
+              </div>
             </div>
           </div>
         </div>

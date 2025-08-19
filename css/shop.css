@@ -1,0 +1,184 @@
+/* ===== SHOP PAGE STYLES ===== */
+
+/* Import base styles */
+@import url('index.css');
+
+/* ===== FILTERS SECTION ===== */
+.filters-section {
+  padding: var(--space-lg) 0;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: var(--space-md);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: var(--deg-acc);
+  margin-right: var(--space-md);
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(57,59,101,0.2);
+  color: var(--deg-acc);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--anim-duration) var(--anim-easing);
+  font-weight: 500;
+  font-size: var(--text-sm);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--deg-acc);
+  color: white;
+  border-color: var(--deg-acc);
+  transform: translateY(-1px);
+}
+
+/* ===== FILTER TOGGLE BUTTONS ===== */
+.filter-toggle {
+  display: none;
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid rgba(57,59,101,0.2);
+  color: var(--deg-acc);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--anim-duration) var(--anim-easing);
+  font-weight: 600;
+  font-size: var(--text-base);
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+}
+
+.filter-toggle:hover {
+  background: rgba(57,59,101,0.05);
+  border-color: var(--deg-acc);
+}
+
+.filter-toggle[aria-expanded="true"] {
+  background: var(--deg-sup);
+  border-color: var(--deg-acc);
+}
+
+.filter-icon {
+  transition: transform var(--anim-duration) var(--anim-easing);
+  font-size: var(--text-sm);
+}
+
+.filter-toggle[aria-expanded="true"] .filter-icon {
+  transform: rotate(180deg);
+}
+
+/* ===== FILTER OPTIONS ===== */
+.filter-options {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: var(--space-sm);
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* ===== PRODUCTS SECTION ===== */
+.products-section {
+  padding: var(--space-2xl) 0;
+}
+
+.products-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.products-count {
+  background: var(--deg-sup);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 20px;
+  color: var(--deg-acc);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  
+  .filter-toggle {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  
+  .filter-options {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: rgba(57,59,101,0.02);
+    border-radius: var(--radius);
+    margin-top: var(--space-sm);
+    border: 1px solid rgba(57,59,101,0.1);
+  }
+  
+  .filter-options.show {
+    display: flex;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .filter-label {
+    margin-right: 0;
+  }
+  
+  .products-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters-section {
+    padding: var(--space-md) 0;
+  }
+  
+  .filter-toggle {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+  
+  .filter-options {
+    padding: var(--space-sm);
+  }
+}

@@ -131,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   
   function attachProductEventListeners() {
-    // Product image click for gallery
     domAll('.product-media').forEach(media => {
       media.addEventListener('click', (e) => {
         const productId = e.currentTarget.getAttribute('data-product-id');
@@ -374,16 +373,14 @@ document.addEventListener('DOMContentLoaded', function(){
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
       
-      // Show/hide button based on scroll position
       if (scrollTop > 300) {
         goToTopBtn.classList.add('visible');
       } else {
         goToTopBtn.classList.remove('visible');
       }
       
-      // Update progress circle - FIXED: Better calculation
       if (progressFill) {
-        const circumference = 2 * Math.PI * 16; // radius = 16
+        const circumference = 2 * Math.PI * 16;
         const progress = (scrollPercent / 100) * circumference;
         progressFill.style.strokeDasharray = `${progress} ${circumference}`;
       }
@@ -396,19 +393,15 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     }
     
-    // Event listeners
     goToTopBtn.addEventListener('click', goToTop);
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     
-    // Initial call
     updateScrollProgress();
   }
 
   // ===== PREVENT UNWANTED SCROLLING =====
   function preventUnwantedScrolling() {
-    // Prevent any default link behaviors that might cause scrolling
     document.addEventListener('click', (e) => {
-      // Only prevent default for empty links or hash links
       if (e.target.tagName === 'A') {
         const href = e.target.getAttribute('href');
         if (href === '#' || href === '') {
@@ -420,7 +413,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Prevent scroll on empty areas
     document.addEventListener('click', (e) => {
-      // If clicking on empty space (body or main), don't scroll
       if (e.target === document.body || e.target === document.querySelector('main')) {
         e.preventDefault();
         e.stopPropagation();
@@ -429,7 +421,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Prevent any unwanted scroll behaviors
     document.addEventListener('scroll', (e) => {
-      // Only allow intentional scrolling
       if (!e.isTrusted) {
         e.preventDefault();
         e.stopPropagation();
@@ -437,19 +428,41 @@ document.addEventListener('DOMContentLoaded', function(){
     }, { passive: false });
   }
 
+  // ===== FILTER TOGGLE FUNCTIONALITY =====
+  function initFilterToggles() {
+    const filterToggles = domAll('.filter-toggle');
+    
+    filterToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const targetId = this.getAttribute('aria-controls');
+        const targetOptions = dom(`#${targetId}`);
+        
+        this.setAttribute('aria-expanded', !isExpanded);
+        
+        if (targetOptions) {
+          if (isExpanded) {
+            targetOptions.classList.remove('show');
+          } else {
+            targetOptions.classList.add('show');
+          }
+        }
+      });
+    });
+  }
+
   // ===== INITIALIZATION =====
   function init() {
-    // Load cart from storage first
     cart = loadCartFromStorage();
     
     renderProducts();
     renderCart();
     attachEventListeners();
     updateProductsCount();
+    initFilterToggles();
     initGoToTop();
   }
 
-  // Start the application
   init();
   
   // Cleanup on page unload
