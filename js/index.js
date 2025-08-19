@@ -278,8 +278,6 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
   }
-  
-  
 
   // ===== CART EVENT LISTENERS =====
   const cartBtn = dom('#cart-btn');

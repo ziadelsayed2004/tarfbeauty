@@ -214,7 +214,7 @@ p {
   position: sticky;
   top: 0;
   z-index: var(--z-dropdown);
-  transition: all var(--anim-duration) var(--anim-easing);
+  transition: box-shadow var(--anim-duration) var(--anim-easing), background-color var(--anim-duration) var(--anim-easing);
 }
 
 .site-header.scrolled {
@@ -386,14 +386,15 @@ p {
 .mobile-menu {
   background: var(--deg-sup);
   border-top: 1px solid rgba(0,0,0,0.06);
-  padding: var(--space-md) 0;
+  padding: 0;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
   transform: translateY(-8px);
   visibility: hidden;
   pointer-events: none;
-  transition: all var(--anim-duration-slow) var(--anim-easing);
+  transition: max-height var(--anim-duration-slow) var(--anim-easing), opacity var(--anim-duration-slow) var(--anim-easing), transform var(--anim-duration-slow) var(--anim-easing), padding var(--anim-duration-slow) var(--anim-easing);
+  will-change: max-height, opacity, transform;
 }
 
 .mobile-menu.hidden {
@@ -407,6 +408,7 @@ p {
   transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
+  padding: var(--space-md) 0;
 }
 
 .mobile-link {
@@ -1435,7 +1437,7 @@ p {
   }
   
   .header-inner {
-    padding: var(--space-xl);
+    padding: var(--space-md) var(--space-xl);
   }
   
   .logo-circle {
