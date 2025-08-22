@@ -454,7 +454,6 @@ document.addEventListener('DOMContentLoaded', function(){
   // ===== INITIALIZATION =====
   function init() {
     cart = loadCartFromStorage();
-    
     renderProducts();
     renderCart();
     attachEventListeners();

@@ -315,7 +315,6 @@ function openGallery(productId, modalManager) {
   const galleryThumbnails = dom('#gallery-thumbnails');
   
   if (galleryModal && galleryMain && galleryThumbnails) {
-    // Set current product for gallery
     window.currentGalleryProduct = product;
     window.currentImageIndex = 0;
     
