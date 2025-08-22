@@ -1,5 +1,4 @@
 'use strict';
-
 document.addEventListener("DOMContentLoaded", () => {
   function applyLazyBlur(img, observer) {
     const realSrc = img.getAttribute("src");
@@ -88,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initLazyBlur();
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   const preloader = document.createElement("div");
   const wrapper = document.createElement("div");
@@ -150,16 +148,23 @@ document.addEventListener("DOMContentLoaded", function () {
     page.style.filter = "blur(12px)";
   }
 
+  const preventScroll = (e) => e.preventDefault();
+  window.addEventListener("wheel", preventScroll, { passive: false });
+  window.addEventListener("touchmove", preventScroll, { passive: false });
+  window.addEventListener("keydown", preventScroll, { passive: false });
+
   setTimeout(() => {
     preloader.style.display = "none";
     document.body.style.overflow = "auto";
     if (page) {
       page.style.filter = "none";
     }
+
+    window.removeEventListener("wheel", preventScroll);
+    window.removeEventListener("touchmove", preventScroll);
+    window.removeEventListener("keydown", preventScroll);
   }, 2000);
 });
-
-
 document.addEventListener('DOMContentLoaded', function(){
   'use strict';
 

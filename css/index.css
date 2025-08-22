@@ -74,6 +74,12 @@
   box-sizing: border-box;
 }
 
+img {
+  outline: none;
+  border: 0;
+  user-select: none;
+}
+
 html, body {
   height: 100%;
 }
