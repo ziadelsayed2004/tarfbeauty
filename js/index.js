@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   const preloader = document.createElement("div");
+  const wrapper = document.createElement("div");
   const img = document.createElement("img");
   const page = document.querySelector(".page");
 
@@ -105,16 +106,36 @@ document.addEventListener("DOMContentLoaded", function () {
   preloader.style.justifyContent = "center";
   preloader.style.zIndex = "9999";
 
-  img.src = "imgs/TarfBg.png";
-  img.style.width = "100px";
-  img.style.height = "100px";
-  img.style.borderRadius = "50%";
-  img.style.boxShadow = "0 0 10px rgba(57, 59, 101, 0.75)";
-  img.style.animation = "spin 1s linear infinite";
+  wrapper.style.position = "relative";
+  wrapper.style.width = "100px";
+  wrapper.style.height = "100px";
+  wrapper.style.display = "flex";
+  wrapper.style.alignItems = "center";
+  wrapper.style.justifyContent = "center";
 
-  preloader.appendChild(img);
+  img.src = "imgs/TarfBg.png";
+  img.style.width = "95px";
+  img.style.height = "95px";
+  img.style.borderRadius = "50%";
+  img.style.zIndex = "2";
+
+  const spinner = document.createElement("div");
+  spinner.style.position = "absolute";
+  spinner.style.width = "100%";
+  spinner.style.height = "100%";
+  spinner.style.border = "5px solid #ddd";
+  spinner.style.borderTop = "5px solid #393B65";
+  spinner.style.borderRadius = "50%";
+  spinner.style.animation = "spin 1ز5s linear infinite";
+  spinner.style.zIndex = "1";
+
+  wrapper.appendChild(spinner);
+  wrapper.appendChild(img);
+  preloader.appendChild(wrapper);
   document.body.appendChild(preloader);
+
   document.body.style.overflow = "hidden";
+
   const style = document.createElement("style");
   style.innerHTML = `
     @keyframes spin {
@@ -134,8 +155,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (page) {
       page.style.filter = "none";
     }
-  }, 1000);
+  }, 2000);
 });
+
 
 document.addEventListener('DOMContentLoaded', function(){
   'use strict';
