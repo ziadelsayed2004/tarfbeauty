@@ -1,13 +1,13 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll("main img");
+  const images = document.querySelectorAll("img");
   const style = document.createElement("style");
   style.innerHTML = `
     main img.lazy-blur {
       filter: blur(12px);
-      opacity: 0.6;
-      transition: filter 0.6s ease, opacity 0.6s ease;
+      opacity: 0.75;
+      transition: filter 0.75s ease-in-out, opacity 0.75s ease-in-out;
     }
     main img.lazy-blur.loaded {
       filter: blur(0);
@@ -34,16 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
   images.forEach(img => {
-    // انقل src الأصلي إلى data-src
     const realSrc = img.getAttribute("src");
     if (realSrc) {
       img.setAttribute("data-src", realSrc);
       img.removeAttribute("src");
     }
-
-    // خليها Placeholder مؤقت
     img.src =
       "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
