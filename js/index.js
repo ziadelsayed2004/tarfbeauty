@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   img.style.height = "100px";
   img.style.borderRadius = "50%";
   img.style.boxShadow = "0 0 10px rgba(57, 59, 101, 0.75)";
-  img.style.animation = "spin 2s linear infinite";
+  img.style.animation = "spin 1s linear infinite";
 
   preloader.appendChild(img);
   document.body.appendChild(preloader);
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (page) {
       page.style.filter = "none";
     }
-  }, 2000);
+  }, 1000);
 });
 
 document.addEventListener('DOMContentLoaded', function(){
