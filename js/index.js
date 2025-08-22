@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll("img");
   const style = document.createElement("style");
   style.innerHTML = `
-    main img.lazy-blur {
+    img.lazy-blur {
       filter: blur(12px);
       opacity: 0.75;
       transition: filter 0.75s ease-in-out, opacity 0.75s ease-in-out;
     }
-    main img.lazy-blur.loaded {
+    img.lazy-blur.loaded {
       filter: blur(0);
       opacity: 1;
     }
