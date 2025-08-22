@@ -167,14 +167,14 @@
   background: linear-gradient(180deg, var(--deg-sup) 0%, rgba(255,255,255,0.8) 100%);
 }
 
-.social-grid {
+.social-section .social-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-xl);
   margin-top: var(--space-xl);
 }
 
-.social-card {
+.social-section .social-card {
   background: var(--bg);
   padding: var(--space-xl);
   border-radius: 20px;
@@ -186,12 +186,12 @@
   color: inherit;
 }
 
-.social-card:hover {
+.social-section .social-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 24px 80px rgba(57,59,101,0.12);
 }
 
-.social-icon {
+.social-section .social-icon {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -203,19 +203,18 @@
   color: white;
 }
 
-.social-card.facebook .social-icon { background: #1877f2; }
-.social-card.instagram .social-icon { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.social-card.whatsapp .social-icon { background: #25d366; }
-.social-card.youtube .social-icon { background: #ff0000; }
+.social-section .social-card.facebook .social-icon { background: #1877f2; }
+.social-section .social-card.instagram .social-icon { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-section .social-card.whatsapp .social-icon { background: #25d366; }
 
-.social-card h3 {
+.social-section .social-card h3 {
   color: var(--deg-acc);
   font-size: var(--text-xl);
   margin: 0 0 var(--space-md);
   font-weight: 700;
 }
 
-.social-card p {
+.social-section .social-card p {
   color: var(--muted);
   line-height: 1.6;
   margin: 0;

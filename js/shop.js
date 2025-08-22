@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         msg += '%0A*المجموع:* ' + subtotal.toFixed(2) + ' EGP';
         
-        window.open('https://wa.me/201020572730?text=' + msg, '_blank');
+        window.open('https://wa.me/201098408960?text=' + msg, '_blank');
         
         modalManager.close(checkoutModal);
         cart = [];
