@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img.lazy-blur {
         filter: blur(12px);
         opacity: 0.75;
-        transition: filter 0.75s ease, opacity 0.75s ease;
+        transition: all 0.75s ease;
       }
       img.lazy-blur.loaded {
         filter: blur(0);
@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
   img.src = "imgs/TarfBg.png";
   img.style.width = "95px";
   img.style.height = "95px";
+  img.style.boxShadow = "0 0 20px rgb(57, 59, 101)";
   img.style.borderRadius = "50%";
   img.style.zIndex = "2";
 
@@ -126,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
   spinner.style.border = "5px solid #ddd";
   spinner.style.borderTop = "5px solid #393B65";
   spinner.style.borderRadius = "50%";
-  spinner.style.animation = "spin 1ز5s linear infinite";
+  spinner.style.animation = "spin 1.5s linear infinite";
   spinner.style.zIndex = "1";
 
   wrapper.appendChild(spinner);

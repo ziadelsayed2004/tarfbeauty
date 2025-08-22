@@ -515,7 +515,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--anim-duration-slow) var(--anim-easing);
+  transition: all var(--anim-duration-slow) var(--anim-easing) !important;
 }
 
 .product-media:hover img {
