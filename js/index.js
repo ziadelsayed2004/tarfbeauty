@@ -1,5 +1,57 @@
 'use strict';
 
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll("main img");
+  const style = document.createElement("style");
+  style.innerHTML = `
+    main img.lazy-blur {
+      filter: blur(12px);
+      opacity: 0.6;
+      transition: filter 0.6s ease, opacity 0.6s ease;
+    }
+    main img.lazy-blur.loaded {
+      filter: blur(0);
+      opacity: 1;
+    }
+  `;
+  document.head.appendChild(style);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const realSrc = img.getAttribute("data-src");
+
+        if (realSrc) {
+          const tempImg = new Image();
+          tempImg.src = realSrc;
+
+          tempImg.onload = () => {
+            img.src = realSrc;
+            img.classList.add("loaded");
+          };
+          observer.unobserve(img);
+        }
+      }
+    });
+  });
+
+  images.forEach(img => {
+    // انقل src الأصلي إلى data-src
+    const realSrc = img.getAttribute("src");
+    if (realSrc) {
+      img.setAttribute("data-src", realSrc);
+      img.removeAttribute("src");
+    }
+
+    // خليها Placeholder مؤقت
+    img.src =
+      "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+
+    img.classList.add("lazy-blur");
+    observer.observe(img);
+  });
+});
+
 (function(){
   try {
     const pre = document.getElementById('preloader');
