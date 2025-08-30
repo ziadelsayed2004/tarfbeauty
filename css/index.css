@@ -483,6 +483,7 @@ p {
 
 .grid {
   display: grid;
+  direction: rtl;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--card-gap);
   margin-bottom: var(--space-xl);
@@ -513,15 +514,25 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, var(--deg-sup), #fff);
   position: relative;
   cursor: pointer;
+}
+
+.product-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background: linear-gradient(120deg, var(--deg-acc), var(--deg-sub), var(--deg-bg));
+  opacity: 0.5;
+  z-index: -1;
 }
 
 .product-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: all var(--anim-duration-slow) var(--anim-easing) !important;
 }
 
