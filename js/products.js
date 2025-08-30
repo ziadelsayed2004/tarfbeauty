@@ -10,7 +10,7 @@ const PRODUCTS = [
     category: 'face',
     bestseller: true,
     description: 'مطهر طبيعي للوجه يزيل الأوساخ والزيوت الزائدة، مناسب لجميع أنواع البشرة',
-    images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
+    images: ['imgs/Products/P1/1.jpg', 'imgs/Products/P1/2.jpg', 'imgs/Products/P1/3.jpg'],
     features: ['طبيعي 100%', 'مناسب للبشرة الحساسة', 'يحتوي على فيتامين E'],
     ingredients: 'ماء، زيت جوز الهند، زيت اللافندر، فيتامين E'
   },

@@ -77,6 +77,7 @@
 img {
   outline: none;
   border: 0;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -804,6 +805,7 @@ p {
   z-index: var(--z-dropdown);
   overflow: hidden;
   display: block;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -1034,8 +1036,8 @@ p {
 }
 
 .gallery-main {
-  width: 40%;
-  height: 40%;
+  width: 35%;
+  height: 35%;
   object-fit: contain;
   border-radius: var(--radius);
 }
@@ -1377,6 +1379,7 @@ footer .social-grid-footer .social-card .social-icon i {
     z-index: var(--z-dropdown);
     overflow: hidden;
     display: block;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
   
@@ -1398,6 +1401,7 @@ footer .social-grid-footer .social-card .social-icon i {
     width: 60%;
     height: 60%;
   }
+
   .gallery-nav {
     width: 40px;
     height: 40px;
