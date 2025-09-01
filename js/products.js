@@ -22,7 +22,7 @@ const PRODUCTS = [
     category: 'body',
     bestseller: true,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
-    images: ['imgs/Tarf.png', 'imgs/Tarf.png', 'imgs/Tarf.png'],
+    images: ['imgs/Products/P2/1.png', 'imgs/Products/P2/2.png', 'imgs/Products/P2/3.png'],
     features: ['ترطيب عميق', 'ملمس خفيف', 'لا يترك بقايا'],
     ingredients: ''
   },
@@ -34,7 +34,7 @@ const PRODUCTS = [
     category: 'body',
     bestseller: true,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
-    images: ['imgs/Tarf.png', 'imgs/Tarf.png', 'imgs/Tarf.png'],
+    images: ['imgs/Products/P3/1.png', 'imgs/Products/P3/2.png', 'imgs/Products/P3/3.png'],
     features: ['منعش ولطيف', 'تركيبة مميزة', 'مناسب للاستخدام اليومي'],
     ingredients: ''
   },

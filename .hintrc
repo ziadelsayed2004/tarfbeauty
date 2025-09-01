@@ -3,6 +3,14 @@
     "development"
   ],
   "hints": {
-    "disown-opener": "off"
+    "disown-opener": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ],
+    "button-type": "off",
+    "no-inline-styles": "off"
   }
 }
