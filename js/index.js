@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
       
       if (progressFill) {
-        const circumference = 2 * Math.PI * 16; // radius = 16
+        const circumference = 2 * Math.PI * 16;
         const progress = (scrollPercent / 100) * circumference;
         progressFill.style.strokeDasharray = `${progress} ${circumference}`;
       }

@@ -484,7 +484,10 @@ p {
 .grid {
   display: grid;
   direction: rtl;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   gap: var(--card-gap);
   margin-bottom: var(--space-xl);
 }
@@ -494,7 +497,7 @@ p {
   background: var(--bg);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 0px 40px rgba(0,0,0,0.125);
   display: flex;
   flex-direction: column;
   transition: all var(--anim-duration) var(--anim-easing);
@@ -1368,6 +1371,10 @@ footer .social-grid-footer .social-card .social-icon i {
     gap: var(--space-lg);
   }
   
+  .product-card {
+    max-width: 80dvw;
+  }
+
   .filter-group {
     flex-direction: column;
     align-items: stretch;

@@ -180,7 +180,7 @@ function createProductCard(product) {
   card.innerHTML = `
     ${badge}
     <div class="product-media" data-product-id="${product.id}">
-      <img src="${product.images[0]}" loading="lazy" alt="${product.name}" width="400" height="280">
+      <img src="${product.images[0]}" loading="lazy" alt="${product.name}">
     </div>
     <div class="product-body">
       <h3 class="product-title">${product.name}</h3>
