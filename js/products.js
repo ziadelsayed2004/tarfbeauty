@@ -9,6 +9,7 @@ const PRODUCTS = [
     old: 100,
     category: 'body',
     bestseller: true,
+    available: true,
     description: 'بدون كحول – بدون بقع – حماية تدوم لحد 48 ساعة',
     images: ['imgs/Products/P1/1.png', 'imgs/Products/P1/2.png', 'imgs/Products/P1/3.png'],
     features: ['طبيعي 100%', 'مناسب للبشرة الحساسة', 'لا يحتوي على كحول'],
@@ -21,6 +22,7 @@ const PRODUCTS = [
     old: 0,
     category: 'body',
     bestseller: true,
+    available: false,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
     images: ['imgs/Products/P2/1.png', 'imgs/Products/P2/2.png', 'imgs/Products/P2/3.png'],
     features: ['ترطيب عميق', 'ملمس خفيف', 'لا يترك بقايا'],
@@ -33,6 +35,7 @@ const PRODUCTS = [
     old: 0,
     category: 'body',
     bestseller: true,
+    available: false,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
     images: ['imgs/Products/P3/1.png', 'imgs/Products/P3/2.png', 'imgs/Products/P3/3.png'],
     features: ['منعش ولطيف', 'تركيبة مميزة', 'مناسب للاستخدام اليومي'],
@@ -45,6 +48,7 @@ const PRODUCTS = [
   //   old: 220,
   //   category: 'hair',
   //   bestseller: true,
+  //   available: false,
   //   description: 'شامبو طبيعي ينظف الشعر بلطف ويحافظ على رطوبته الطبيعية',
   //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
   //   features: ['طبيعي 100%', 'يناسب جميع أنواع الشعر', 'لا يحتوي على كبريتات'],
@@ -57,6 +61,7 @@ const PRODUCTS = [
   //   old: 180,
   //   category: 'hair',
   //   bestseller: false,
+  //   available: false,
   //   description: 'بلسم مغذي يمنح الشعر النعومة واللمعان الطبيعي',
   //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
   //   features: ['مغذي عميق', 'نعومة فورية', 'لمعان طبيعي'],
@@ -69,6 +74,7 @@ const PRODUCTS = [
   //   old: 120,
   //   category: 'face',
   //   bestseller: false,
+  //   available: false,
   //   description: 'صابونة طبيعية للجسم تنعش البشرة وتتركها ناعمة',
   //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
   //   features: ['طبيعي 100%', 'رائحة منعشة', 'مناسب للبشرة الحساسة'],
@@ -81,6 +87,7 @@ const PRODUCTS = [
   //   old: 250,
   //   category: 'face',
   //   bestseller: false,
+  //   available: false,
   //   description: 'كريم مرطب للجسم يمنح البشرة النعومة والترطيب العميق',
   //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
   //   features: ['ترطيب عميق', 'ملمس خفيف', 'رائحة منعشة'],
@@ -93,6 +100,7 @@ const PRODUCTS = [
   //   old: 160,
   //   category: 'makeup',
   //   bestseller: false,
+  //   available: false,
   //   description: 'أحمر شفاه طبيعي بألوان جميلة وملمس ناعم',
   //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
   //   features: ['طبيعي 100%', 'ألوان جميلة', 'ملمس ناعم'],
@@ -105,6 +113,7 @@ const PRODUCTS = [
   //   old: 130,
   //   category: 'makeup',
   //   bestseller: false,
+  //   available: false,
   //   description: 'كحل طبيعي للعين يعطي مظهراً جذاباً وآمناً',
   //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
   //   features: ['طبيعي 100%', 'مقاوم للماء', 'سهل الإزالة'],
@@ -174,8 +183,31 @@ function getCartItemCount(cart) {
 function createProductCard(product) {
   const card = document.createElement('article');
   card.className = 'product-card';
+  card.setAttribute('data-available', product.available ? 'true' : 'false');
   
   const badge = product.bestseller ? '<div class="product-badge">الأكثر مبيعاً</div>' : '';
+
+  const priceHTML = product.available ? `
+    <div class="product-price">
+      <s>${product.old} EGP</s>
+      <strong>${product.price} EGP</strong>
+    </div>
+  ` : '';
+
+  const actionsHTML = product.available ? `
+    <div class="product-actions">
+      <button class="btn-quantity" data-product-id="${product.id}" data-action="decrease" aria-label="تقليل الكمية">-</button>
+      <span class="quantity-display" data-product-id="${product.id}">1</span>
+      <button class="btn-quantity" data-product-id="${product.id}" data-action="increase" aria-label="زيادة الكمية">+</button>
+      <button class="add-to-cart-btn" data-product-id="${product.id}" aria-label="إضافة ${product.name} للسلة">
+        إضافة للسلة
+      </button>
+    </div>
+  ` : `
+    <div class="product-unavailable" aria-hidden="true">غير متوفر حالياً</div>
+  `;
+  
+  const priceAndActionsHTML = product.available ? `${priceHTML}${actionsHTML}` : actionsHTML;
   
   card.innerHTML = `
     ${badge}
@@ -186,18 +218,7 @@ function createProductCard(product) {
       <h3 class="product-title">${product.name}</h3>
       <p class="product-desc">${product.description}</p>
       <div class="product-meta">
-        <div class="product-price">
-          <s>${product.old} EGP</s>
-          <strong>${product.price} EGP</strong>
-        </div>
-        <div class="product-actions">
-          <button class="btn-quantity" data-product-id="${product.id}" data-action="decrease" aria-label="تقليل الكمية">-</button>
-          <span class="quantity-display" data-product-id="${product.id}">1</span>
-          <button class="btn-quantity" data-product-id="${product.id}" data-action="increase" aria-label="زيادة الكمية">+</button>
-          <button class="add-to-cart-btn" data-product-id="${product.id}" aria-label="إضافة ${product.name} للسلة">
-            إضافة للسلة
-          </button>
-        </div>
+        ${priceAndActionsHTML}
       </div>
     </div>
   `;
@@ -209,6 +230,7 @@ function createProductCard(product) {
 function addToCart(cart, productId, quantity = 1) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return cart;
+  if (!product.available) return cart;
   
   const existingItem = cart.find(item => item.id === productId);
   if (existingItem) {
@@ -294,6 +316,8 @@ function getBestSellers() {
 function filterProducts(category = 'all', price = 'all') {
   return PRODUCTS.filter(product => {
     const categoryMatch = category === 'all' || product.category === category;
+    
+    if (!product.available) return false;
     
     let priceMatch = true;
     if (price !== 'all') {
