@@ -897,10 +897,10 @@ p {
 
 @media (max-width: 1400px){
   .reviews .slider-prev {
-    left: 14px;
+    left: 14px !important;
   }
   .reviews .slider-next {
-    right: 14px;
+    right: 14px !important;
   }
 }
 
