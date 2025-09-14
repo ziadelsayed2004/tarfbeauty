@@ -703,6 +703,7 @@ p {
 .reviews-slider-container {
   position: relative;
   margin: 0 auto;
+  height: auto;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(57, 59, 101, 0.15);
@@ -715,6 +716,7 @@ p {
   box-shadow: 0 25px 80px rgba(57, 59, 101, 0.25);
   transform: translateY(-2px);
 }
+
 .reviews-slider-container:hover .slider-nav {
   opacity: 1;
 }
@@ -821,11 +823,13 @@ p {
   opacity: 0.9;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
+
 .slider-nav:hover {
   transform: translateY(-50%) scale(1.06);
   background: var(--deg-acc);
   opacity: 1;
 }
+
 .slider-nav:active {
   transform: translateY(-50%) scale(1.03);
 }
@@ -850,6 +854,8 @@ p {
 .slider-dot {
   width: 11px;
   height: 11px;
+  max-width: 11px;
+  max-height: 11px;
   border-radius: 50%;
   border: none;
   background: rgba(57, 59, 101, 0.28);
@@ -864,6 +870,11 @@ p {
 .slider-dot.active {
   background: var(--deg-acc);
   transform: scale(1.4);
+  width: 11px;
+  height: 11px;
+  max-width: 11px;
+  max-height: 11px;
+  border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(57, 59, 101, 0.06);
   animation: pulse 2s infinite;
 }
