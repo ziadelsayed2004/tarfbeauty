@@ -895,7 +895,7 @@ p {
   margin: 0;
 }
 
-@media (max-width: 767px){
+@media (max-width: 1400px){
   .reviews .slider-prev {
     left: 14px;
   }
