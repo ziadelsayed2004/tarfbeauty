@@ -21,10 +21,10 @@ const PRODUCTS = [
     price: 0,
     old: 0,
     category: 'body',
-    bestseller: true,
+    bestseller: false,
     available: false,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
-    images: ['imgs/Products/P2/1.png', 'imgs/Products/P2/2.png', 'imgs/Products/P2/3.png'],
+    images: ['imgs/Products/P3/1.png', 'imgs/Products/P3/2.png', 'imgs/Products/P3/3.png'],
     features: ['ترطيب عميق', 'ملمس خفيف', 'لا يترك بقايا'],
     ingredients: ''
   },
@@ -34,11 +34,24 @@ const PRODUCTS = [
     price: 0,
     old: 0,
     category: 'body',
-    bestseller: true,
+    bestseller: false,
     available: false,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
     images: ['imgs/Products/P3/1.png', 'imgs/Products/P3/2.png', 'imgs/Products/P3/3.png'],
     features: ['منعش ولطيف', 'تركيبة مميزة', 'مناسب للاستخدام اليومي'],
+    ingredients: ''
+  },
+  {
+    id: 'face-1',
+    name: 'غسول جيل للبشرة الدهنية والمختلطة',
+    price: 160,
+    old: 200,
+    category: 'face',
+    bestseller: true,
+    available: true,
+    description: 'غني بالهايالورونيك أسيد للترطيب وتركيبة خفيفة بدون سلفات ويحافظ على توازن البشرة ويمنحك انتعاش يدوم طول اليوم',
+    images: ['imgs/Products/P2/1.png', 'imgs/Products/P2/2.png', 'imgs/Products/P2/3.png'],
+    features: ['تنظيف عميق', 'رائحة منعشة', 'مناسب للبشرة الدهنية والمختلطة'],
     ingredients: ''
   },
   // {
@@ -55,45 +68,6 @@ const PRODUCTS = [
   //   ingredients: 'ماء، زيت جوز الهند، زيت الأرغان، زيت اللافندر'
   // },
   // {
-  //   id: 'hair-2',
-  //   name: 'بلسم الشعر المغذي',
-  //   price: 140,
-  //   old: 180,
-  //   category: 'hair',
-  //   bestseller: false,
-  //   available: false,
-  //   description: 'بلسم مغذي يمنح الشعر النعومة واللمعان الطبيعي',
-  //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
-  //   features: ['مغذي عميق', 'نعومة فورية', 'لمعان طبيعي'],
-  //   ingredients: 'ماء، زيت الأرغان، زبدة الشيا، زيت اللافندر'
-  // },
-  // {
-  //   id: 'face-1',
-  //   name: 'صابونة الجسم الطبيعية',
-  //   price: 80,
-  //   old: 120,
-  //   category: 'face',
-  //   bestseller: false,
-  //   available: false,
-  //   description: 'صابونة طبيعية للجسم تنعش البشرة وتتركها ناعمة',
-  //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
-  //   features: ['طبيعي 100%', 'رائحة منعشة', 'مناسب للبشرة الحساسة'],
-  //   ingredients: 'زيت جوز الهند، زيت الزيتون، زيت اللافندر، زيت النعناع'
-  // },
-  // {
-  //   id: 'face-2',
-  //   name: 'كريم الجسم المرطب',
-  //   price: 190,
-  //   old: 250,
-  //   category: 'face',
-  //   bestseller: false,
-  //   available: false,
-  //   description: 'كريم مرطب للجسم يمنح البشرة النعومة والترطيب العميق',
-  //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
-  //   features: ['ترطيب عميق', 'ملمس خفيف', 'رائحة منعشة'],
-  //   ingredients: 'ماء، زيت الأرغان، زبدة الشيا، زيت اللافندر'
-  // },
-  // {
   //   id: 'makeup-1',
   //   name: 'أحمر الشفاه الطبيعي',
   //   price: 120,
@@ -106,19 +80,6 @@ const PRODUCTS = [
   //   features: ['طبيعي 100%', 'ألوان جميلة', 'ملمس ناعم'],
   //   ingredients: 'زيت جوز الهند، شمع العسل، زيت الأرغان، ألوان طبيعية'
   // },
-  // {
-  //   id: 'makeup-2',
-  //   name: 'كحل العين الطبيعي',
-  //   price: 90,
-  //   old: 130,
-  //   category: 'makeup',
-  //   bestseller: false,
-  //   available: false,
-  //   description: 'كحل طبيعي للعين يعطي مظهراً جذاباً وآمناً',
-  //   images: ['imgs/TarfSq.png', 'imgs/TarfSq.png', 'imgs/TarfSq.png'],
-  //   features: ['طبيعي 100%', 'مقاوم للماء', 'سهل الإزالة'],
-  //   ingredients: 'فحم نباتي، زيت جوز الهند، زيت اللافندر'
-  // }
 ];
 
 // ===== SHARED UTILITY FUNCTIONS =====
@@ -216,7 +177,8 @@ function createProductCard(product) {
     </div>
     <div class="product-body">
       <h3 class="product-title">${product.name}</h3>
-      <p class="product-desc">${product.description}</p>
+      <p class="product-desc">الوصف: <br>${product.description}</p>
+      <p class="product-feat">المميزات: <br>${product.features}</p>
       <div class="product-meta">
         ${priceAndActionsHTML}
       </div>
