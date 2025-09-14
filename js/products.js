@@ -21,7 +21,7 @@ const PRODUCTS = [
     price: 0,
     old: 0,
     category: 'body',
-    bestseller: false,
+    bestseller: true,
     available: false,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
     images: ['imgs/Products/P3/1.png', 'imgs/Products/P3/2.png', 'imgs/Products/P3/3.png'],
@@ -37,7 +37,7 @@ const PRODUCTS = [
     bestseller: false,
     available: false,
     description: 'انتظروا المنتج وتابعونا لكل جديد',
-    images: ['imgs/Products/P3/1.png', 'imgs/Products/P3/2.png', 'imgs/Products/P3/3.png'],
+    images: ['imgs/Products/P3/1.png', 'imgs/Products/P3/2.png'],
     features: ['منعش ولطيف', 'تركيبة مميزة', 'مناسب للاستخدام اليومي'],
     ingredients: ''
   },
