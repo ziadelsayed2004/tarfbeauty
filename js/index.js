@@ -528,4 +528,263 @@ document.addEventListener('DOMContentLoaded', function(){
       saveCartToStorage(cart);
     }
   });
+
+  // ===== REVIEWS SLIDER =====
+  class ReviewsSlider {
+    constructor(options = {}) {
+      this.slider = document.querySelector('#reviews-slider');
+      this.prevBtn = document.querySelector('#reviews-prev');
+      this.nextBtn = document.querySelector('#reviews-next');
+      this.dotsContainer = document.querySelector('#reviews-dots');
+  
+      this.currentSlide = 0;
+      this.slides = [];
+      this.maxAttempts = options.maxAttempts || 40;
+      this.consecutiveMissingThreshold = options.consecutiveMissingThreshold || 6;
+      this.autoSlideInterval = null;
+      this.autoSlideDelay = options.autoSlideDelay || 5500;
+      this.transitionDuration = options.transitionDuration || 500;
+  
+      this._onTransitionEnd = this._onTransitionEnd.bind(this);
+      this.init();
+    }
+  
+    async init() {
+      await this.loadAllImagesInFolder();
+      this.renderSlides();
+      this.renderDots();
+      this.attachEventListeners();
+      requestAnimationFrame(() => {
+        this.startAutoSlide();
+      });
+    }
+  
+    async loadAllImagesInFolder() {
+      const exts = ['.jpg', '.png'];
+      const base = './imgs/Reviews/';
+      const tryLoad = (src) => new Promise((res) => {
+        const img = new Image();
+        img.onload = () => res(true);
+        img.onerror = () => res(false);
+        img.src = src;
+      });
+  
+      let consecutiveMissing = 0;
+      for (let i = 1; i <= this.maxAttempts; i++) {
+        let foundAnyForNumber = false;
+        const variants = [
+          `${i}`, 
+          i.toString().padStart(2, '0'),
+          i.toString().padStart(3, '0')
+        ];
+        for (const v of variants) {
+          for (const ext of exts) {
+            const candidate = `${base}${v}${ext}`;
+            const exists = await tryLoad(candidate);
+            if (exists) {
+              this.slides.push(candidate);
+              foundAnyForNumber = true;
+              break;
+            }
+          }
+          if (foundAnyForNumber) break;
+        }
+        if (!foundAnyForNumber) {
+          consecutiveMissing++;
+          if (consecutiveMissing >= this.consecutiveMissingThreshold) break;
+        } else {
+          consecutiveMissing = 0;
+        }
+      }
+  
+      console.log(`ReviewsSlider: loaded ${this.slides.length} images.`);
+    }
+  
+    renderSlides() {
+      if (!this.slider) return;
+      this.slider.innerHTML = '';
+    
+      if (this.slides.length === 0) {
+        this.showNoImagesMessage();
+        return;
+      }
+    
+      this.slides.forEach((src, idx) => {
+        const slide = document.createElement('div');
+        slide.className = 'slider-slide';
+        slide.dataset.index = idx;
+    
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `تقييم العميل ${idx + 1}`;
+        img.loading = 'lazy';
+    
+        img.onload = () => {
+          slide.classList.add('loaded');
+          const loadedCount = this.slider.querySelectorAll('.slider-slide.loaded').length;
+          if (loadedCount === 1) {
+            this.updateSlidePosition();
+            this.renderDots();
+          }
+        };
+    
+        img.onerror = () => {
+          slide.remove();
+        };
+    
+        slide.appendChild(img);
+        this.slider.appendChild(slide);
+      });
+    
+      const first = this.slider.querySelector('.slider-slide');
+      if (first) {
+        const clone = first.cloneNode(true);
+        clone.classList.add('clone');
+        this.slider.appendChild(clone);
+      }
+    
+      this.slider.style.transition = `transform ${this.transitionDuration}ms ease-in-out`;
+      this.updateSlidePosition();
+    }
+    
+  
+    renderDots() {
+      if (!this.dotsContainer) return;
+      this.dotsContainer.innerHTML = '';
+      const count = this.slider.querySelectorAll('.slider-slide:not(.clone)').length;
+      if (count <= 1) return;
+  
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot';
+        dot.dataset.slide = i;
+        dot.setAttribute('aria-label', `انتقل إلى الشريحة ${i + 1}`);
+        if (i === this.currentSlide) dot.classList.add('active');
+        dot.addEventListener('click', () => this.goToSlide(i));
+        this.dotsContainer.appendChild(dot);
+      }
+    }
+  
+    attachEventListeners() {
+      if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
+      if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
+  
+      if (this.slider) {
+        this.slider.addEventListener('mouseenter', () => this.stopAutoSlide());
+        this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
+        this.slider.addEventListener('transitionend', this._onTransitionEnd);
+      }
+  
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') this.prevSlide();
+        if (e.key === 'ArrowRight') this.nextSlide();
+      });
+    }
+  
+    _onTransitionEnd() {
+      const slides = this.slider.querySelectorAll('.slider-slide');
+      const originalsCount = slides.length - (slides[slides.length - 1].classList.contains('clone') ? 1 : 0);
+      if (this.currentSlide >= originalsCount) {
+        this.slider.style.transition = 'none';
+        this.currentSlide = 0;
+        this.updateSlidePosition();
+        this.slider.offsetHeight;
+        this.slider.style.transition = `transform ${this.transitionDuration}ms ease-in-out`;
+      } else if (this.currentSlide < 0) {
+        this.slider.style.transition = 'none';
+        this.currentSlide = originalsCount - 1;
+        this.updateSlidePosition();
+        this.slider.offsetHeight;
+        this.slider.style.transition = `transform ${this.transitionDuration}ms ease-in-out`;
+      }
+      this.updateDots();
+    }
+  
+    goToSlide(index) {
+      const originalsCount = this.slider.querySelectorAll('.slider-slide:not(.clone)').length;
+      if (originalsCount === 0) return;
+      this.currentSlide = Math.max(0, Math.min(index, originalsCount - 1));
+      this.updateSlidePosition();
+      this.updateDots();
+    }
+  
+    nextSlide() {
+      const originalsCount = this.slider.querySelectorAll('.slider-slide:not(.clone)').length;
+      if (originalsCount === 0) return;
+      this.currentSlide += 1;
+      this.updateSlidePosition();
+      this.updateDots();
+    }
+  
+    prevSlide() {
+      const originalsCount = this.slider.querySelectorAll('.slider-slide:not(.clone)').length;
+      if (originalsCount === 0) return;
+      if (this.currentSlide === 0) {
+        this.currentSlide = -1;
+      } else {
+        this.currentSlide -= 1;
+      }
+      this.updateSlidePosition();
+      this.updateDots();
+    }
+  
+    updateSlidePosition() {
+      if (!this.slider) return;
+      const translateX = -this.currentSlide * 100;
+      this.slider.style.transform = `translateX(${translateX}%)`;
+      const slides = Array.from(this.slider.querySelectorAll('.slider-slide'));
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === this.currentSlide);
+      });
+    }
+  
+    updateDots() {
+      if (!this.dotsContainer) return;
+      const dots = Array.from(this.dotsContainer.querySelectorAll('.slider-dot'));
+      dots.forEach((dot, idx) => dot.classList.toggle('active', idx === (this.currentSlide % dots.length + dots.length) % dots.length));
+    }
+  
+    startAutoSlide() {
+      const originalsCount = this.slider.querySelectorAll('.slider-slide:not(.clone)').length;
+      if (originalsCount <= 1) return;
+      this.stopAutoSlide();
+      this.autoSlideInterval = setInterval(() => this.nextSlide(), this.autoSlideDelay);
+    }
+  
+    stopAutoSlide() {
+      if (this.autoSlideInterval) {
+        clearInterval(this.autoSlideInterval);
+        this.autoSlideInterval = null;
+      }
+    }
+  
+    showNoImagesMessage() {
+      if (!this.slider) return;
+      this.slider.innerHTML = `
+        <div class="no-images-message">
+          <i class="fas fa-images"></i>
+          <p>لا توجد صور تقييمات متاحة حالياً</p>
+        </div>
+      `;
+    }
+  
+    destroy() {
+      this.stopAutoSlide();
+      if (this.slider) {
+        this.slider.removeEventListener('transitionend', this._onTransitionEnd);
+      }
+    }
+  }
+  
+  // usage
+  document.addEventListener('DOMContentLoaded', () => {
+    window.reviewsSlider = new ReviewsSlider({
+      maxAttempts: 30,
+      consecutiveMissingThreshold: 5,
+      autoSlideDelay: 3500,
+      transitionDuration: 450
+    });
+  });
+  
+  const reviewsSlider = new ReviewsSlider();
 });
